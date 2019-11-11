@@ -1,0 +1,135 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+header {
+  position: relative;
+}
+
+.group-title {
+  color:blue;
+  margin:0 auto;
+  text-align: center;
+  font-size: 50px;
+}
+
+.new_group ,.edit_group {
+  margin: 0 auto;
+  display: block;
+  display: flex;
+  justify-content: center;
+  .group-id {
+    display: block;
+    height: 60px;
+    width:450px;
+    font-size:40px;
+  }
+
+  .hidden {
+    width:1px;
+    display: block;
+  }
+  .group-btn {
+    display: block;
+    height: 60px;
+    width:100px;
+    margin:3px;
+    background-color: yellow;
+  }
+}
+
+.group-edit-btn {
+  width:100px;
+  background-color: yellow;
+  height: 60px;
+  display: block;
+  margin:0 auto;
+  position:absolute;
+    top:150px;
+    left:45%;
+   
+}
+
+.max-notice {
+  position:absolute;
+    top:150px;
+    left:35%;
+    color:red;
+    font-size:40px;
+
+}
+
+.members {
+  height:500px;
+  width:100%;
+  margin-top: 150px;
+  font-size: 40px;
+  display: flex;
+  justify-content: space-between;
+  .vs {
+    text-align: center;
+    line-height: 500px;
+    position:absolute;
+    top:250px;
+    left:47%;
+  }
+  .member {
+    margin: 0 75px;
+    color:blue;
+    line-height: 100px;
+    float: left;
+    width:365px;
+    background-color: gray;
+    border: 1px solid;
+    .member-img {
+      height:400px;
+    }
+    .member-name {
+      text-align: center;
+      background-color: black;
+      color: white;
+      height: 100px;
+      width:365px;
+      font-size:40px;
+    }
+  }
+}
+
+.title {
+  color:red;
+  margin:0 auto;
+  text-align: center;
+  font-size: 50px;
+}
+
+.group-list {
+  font-size:35px;
+  color: blue;
+  margin-left:30px;
+}
+.groups {
+  display: flex;
+  list-style: none;
+  .group {
+    font-size :30px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.button {
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  height: 70px;
+  line-height: 70px;
+  font-size:45px;
+  background-color: skyblue;
+  width:308px;
+  margin-top:100px;
+  
+  a {
+    text-decoration: none;
+    color:white;
+  }
+}

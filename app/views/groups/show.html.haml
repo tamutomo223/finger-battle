@@ -1,0 +1,20 @@
+.group-title
+  = @group.name
+= form_for [@group] do |f|
+  - if @group.users.length <= 1 && @group.users[0] != current_user
+    = f.submit "ルームに入る",class:"group-edit-btn"  
+  - elsif @group.users.length == 2 && user_signed_in?
+    = link_to turns_new_path(@group),class:"group-edit-btn" do
+      準備完了
+  - else
+    .max-notice
+      ルームは満員です 
+  .members
+    .vs VS
+    - @group.users.first(2).each do |user|
+      %input{name: "group[user_ids][]", type: "hidden", value: user.id}
+      %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
+      .member
+        .member-img
+        .member-name
+          = user.name

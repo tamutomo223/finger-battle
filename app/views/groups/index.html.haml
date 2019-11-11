@@ -1,0 +1,15 @@
+.wrapper
+  %h1.title
+    指スマオンライン
+  
+  %h2.group-list
+    グループ一覧
+  %ul.groups    
+    - @groups.first(5).each do |group|
+      %li.group
+        =link_to group_path(group), class: "group" do
+          = group.name + "  ,"
+          
+
+  .button
+    = link_to "グループを作る", "groups/new" 
