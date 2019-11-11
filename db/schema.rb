@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_152130) do
+ActiveRecord::Schema.define(version: 2019_11_11_160835) do
+
+  create_table "attacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "turn_id"
+    t.integer "right"
+    t.integer "left"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "turn_id"
+    t.integer "right"
+    t.integer "left"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "group_id"
@@ -23,6 +39,24 @@ ActiveRecord::Schema.define(version: 2019_11_11_152130) do
 
   create_table "groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "turn_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "turn_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["turn_id"], name: "index_turn_users_on_turn_id"
+    t.index ["user_id"], name: "index_turn_users_on_user_id"
+  end
+
+  create_table "turns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "turn_num"
+    t.integer "group_id"
+    t.integer "attack_id"
+    t.integer "defence_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,4 +77,6 @@ ActiveRecord::Schema.define(version: 2019_11_11_152130) do
 
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "turn_users", "turns"
+  add_foreign_key "turn_users", "users"
 end
