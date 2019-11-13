@@ -1,10 +1,20 @@
+:javascript
+  window.onload = setupRefresh;
+
+  function setupRefresh() {
+    setTimeout("refreshPage();", 5000);
+  }
+  function refreshPage() {
+    window.location = location.href;
+  }
+
 .group-title
   = @group.name
 = form_for [@group] do |f|
   - if @group.users.length <= 1 && @group.users[0] != current_user
     = f.submit "ルームに入る",class:"group-edit-btn"  
-  - elsif @group.users.length == 2 && user_signed_in?
-    = link_to turns_new_path(@group),class:"group-edit-btn" do
+  - elsif @group.users.length == 2 && user_signed_in? 
+    = link_to new_turn_path(@group),class:"group-edit-btn" do
       準備完了
   - else
     .max-notice

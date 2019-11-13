@@ -1,4 +1,4 @@
 class Attack < ApplicationRecord
-  belongs_to :turn
-  belongs_to :user
+  belongs_to :turn,optional: true
+  belongs_to :user,optional: true
 end

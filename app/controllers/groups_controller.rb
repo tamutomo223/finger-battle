@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :update]
+  before_action :set_group, only: [:update]
 
   def index
     @groups = Group.all.order(created_at: "desc")
@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    
+    @group = Group.find(params[:id])
   end
 
   def update

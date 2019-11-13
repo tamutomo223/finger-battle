@@ -1,0 +1,17 @@
+防御ページ
+
+あげる指を選択してください
+
+= form_for [@defence] do |f|
+  右指
+  %input{type: "radio",name:"right",value: 1}あげる
+  %input{type: "radio",name:"right",value: 0}あげない
+  左指
+  %input{type: "radio",name:"left",value: 1}あげる
+  %input{type: "radio",name:"left",value: 0}あげない
+
+  %input{type: "hidden", name:"turn_id",value: @turn.id}
+  %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+  %input{type: "hidden", name:"user_id", value: current_user.id}
+
+  %input{type: "submit", value: "送信"}

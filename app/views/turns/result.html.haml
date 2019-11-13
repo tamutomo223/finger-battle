@@ -1,0 +1,49 @@
+結果表示
+
+攻撃側
+
+%p
+  右手
+  = @attack.right
+
+  左手
+  = @attack.left
+
+%p
+  合計
+  = @attackresult
+
+
+
+
+守備側
+
+%p
+  右手
+  = @defence.right
+
+  左手
+  = @defence.left
+
+%p
+  合計
+  = @defenceresult
+
+
+
+%p
+  コール
+  = @attack.call
+
+
+結果
+
+= @result
+
+
+- if current_user.id.to_i == @attack.user_id.to_i
+  = link_to defences_new_path(@group,@next_turn_attack,@turn_num_next) do
+    次のターンへ
+- else
+  = link_to attacks_new_path(@group,@next_turn_defence,@turn_num_next) do
+    次のターンへ

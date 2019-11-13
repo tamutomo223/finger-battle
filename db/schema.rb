@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_160835) do
+ActiveRecord::Schema.define(version: 2019_11_13_085513) do
 
   create_table "attacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "turn_id"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2019_11_11_160835) do
     t.integer "left"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "call"
+    t.string "user_id"
+    t.string "turn_num"
   end
 
   create_table "defences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -26,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_160835) do
     t.integer "left"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_id"
+    t.string "turn_num"
   end
 
   create_table "group_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,10 +58,10 @@ ActiveRecord::Schema.define(version: 2019_11_11_160835) do
   end
 
   create_table "turns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "turn_num"
-    t.integer "group_id"
-    t.integer "attack_id"
-    t.integer "defence_id"
+    t.string "turn_num"
+    t.string "group_id"
+    t.string "attack_id"
+    t.string "defence_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
