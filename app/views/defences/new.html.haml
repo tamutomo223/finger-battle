@@ -3,15 +3,77 @@
 あげる指を選択してください
 
 = form_for [@defence] do |f|
-  右指
-  %input{type: "radio",name:"right",value: 1}あげる
-  %input{type: "radio",name:"right",value: 0}あげない
-  左指
-  %input{type: "radio",name:"left",value: 1}あげる
-  %input{type: "radio",name:"left",value: 0}あげない
+  - if  @turn_num.to_i >= 1 && @turn_num.to_i <= 99
+    右指
+    %input{type: "radio",name:"right",value: 1}あげる
+    %input{type: "radio",name:"right",value: 0}あげない
+    左指
+    %input{type: "radio",name:"left",value: 1}あげる
+    %input{type: "radio",name:"left",value: 0}あげない
 
-  %input{type: "hidden", name:"turn_id",value: @turn.id}
-  %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
-  %input{type: "hidden", name:"user_id", value: current_user.id}
+    %input{type: "hidden", name:"turn_id",value: @turn.id}
+    %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+    %input{type: "hidden", name:"user_id", value: current_user.id}
 
-  %input{type: "submit", value: "送信"}
+    %input{type: "submit", value: "送信"}
+
+  - elsif @turn_num.to_i >= 101 && @turn_num.to_i <= 199 && @group.users[1] == current_user  
+    右指
+    %input{type: "radio",name:"right",value: 1}あげる
+    %input{type: "radio",name:"right",value: 0}あげない
+    左指
+    %input{type: "radio",name:"left",value: 1}あげる
+    %input{type: "radio",name:"left",value: 0}あげない
+
+    %input{type: "hidden", name:"turn_id",value: @turn.id}
+    %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+    %input{type: "hidden", name:"user_id", value: current_user.id}
+
+    %input{type: "submit", value: "送信"}
+
+  - elsif @turn_num.to_i >= 101 && @turn_num.to_i <= 199 && @group.users[0] == current_user    
+    左指
+    %input{type: "radio",name:"left",value: 1}あげる
+    %input{type: "radio",name:"left",value: 0}あげない
+
+    %input{type: "hidden", name:"turn_id",value: @turn.id}
+    %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+    %input{type: "hidden", name:"user_id", value: current_user.id}
+
+    %input{type: "submit", value: "送信"}
+
+  - elsif @turn_num.to_i >= 501 && @turn_num.to_i <= 599 && @group.users[1] == current_user  
+    左指
+    %input{type: "radio",name:"left",value: 1}あげる
+    %input{type: "radio",name:"left",value: 0}あげない
+
+    %input{type: "hidden", name:"turn_id",value: @turn.id}
+    %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+    %input{type: "hidden", name:"user_id", value: current_user.id}
+
+    %input{type: "submit", value: "送信"}
+
+  - elsif @turn_num.to_i >= 501 && @turn_num.to_i <= 599 && @group.users[0] == current_user  
+    右指
+    %input{type: "radio",name:"right",value: 1}あげる
+    %input{type: "radio",name:"right",value: 0}あげない
+    左指
+    %input{type: "radio",name:"left",value: 1}あげる
+    %input{type: "radio",name:"left",value: 0}あげない
+
+    %input{type: "hidden", name:"turn_id",value: @turn.id}
+    %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+    %input{type: "hidden", name:"user_id", value: current_user.id}
+
+    %input{type: "submit", value: "送信"}
+
+  - elsif @turn_num.to_i >= 601 && @turn_num.to_i <= 700
+    左指
+    %input{type: "radio",name:"left",value: 1}あげる
+    %input{type: "radio",name:"left",value: 0}あげない
+
+    %input{type: "hidden", name:"turn_id",value: @turn.id}
+    %input{type: "hidden", name:"turn_num",value: @turn.turn_num}
+    %input{type: "hidden", name:"user_id", value: current_user.id}
+
+    %input{type: "submit", value: "送信"}

@@ -5,7 +5,11 @@ class DefencesController < ApplicationController
     @turn_num = params[:turn_num]
     if @turn_num.to_i == 1
       @turn = Turn.find(params[:id])  
-    else
+    elsif @turn_num.to_i >= 200 && @turn_num.to_i <= 299
+      redirect_to root_path
+    elsif @turn_num.to_i >= 1000
+      redirect_to root_path
+    else  
       @turn = Turn.new(group_id: @group.id,turn_num: @turn_num)
       @turn.save
     end

@@ -47,10 +47,10 @@ class TurnsController < ApplicationController
     @attackresult = @attack.right.to_i + @attack.left.to_i
     @defenceresult = @defence.right.to_i + @defence.left.to_i
     @total = @attackresult.to_i + @defenceresult.to_i
-    if @total == @attack.call.to_i && @attack.user_id == @group.users[0]
+    if @total == @attack.call.to_i && @attack.user == @group.users[0]
       @result = "あたり"
       @turn_num_next = @turn_num + 101
-    elsif @total == @attack.call.to_i && @attack.user_id == @group.users[0]
+    elsif @total == @attack.call.to_i && @attack.user == @group.users[1]
       @result = "あたり"
       @turn_num_next = @turn_num + 501
     else
