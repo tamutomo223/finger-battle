@@ -1,49 +1,63 @@
-結果表示
+.title
+  結果表示
 
-攻撃側
+.result
 
-%p
-  右手
-  = @attack.right
+  .attack
+    .result-title
+      攻撃側
 
-  左手
-  = @attack.left
+    %p      
+      左手
+      = @attack.left
 
-%p
-  合計
-  = @attackresult
+      右手
+      = @attack.right
 
-
-
-
-守備側
-
-%p
-  右手
-  = @defence.right
-
-  左手
-  = @defence.left
-
-%p
-  合計
-  = @defenceresult
+    %p
+      合計
+      = @attackresult
 
 
 
-%p
+  .defence
+    .result-title
+      守備側
+
+    %p     
+      左手
+      = @defence.left
+
+      - if @defence.right
+        右手
+        = @defence.right
+      - else
+        右手
+        = "なし"    
+          
+
+    %p
+      合計
+      = @defenceresult
+
+
+
+%p.attack-call
   コール
   = @attack.call
 
 
-結果
 
-= @result
+
+.atari  
+  = "〜#{@result}〜"
 
 
 - if current_user.id.to_i == @attack.user_id.to_i
-  = link_to defences_new_path(@group,@next_turn_attack,@turn_num_next) do
-    次のターンへ
+  .next-turn
+    = link_to defences_new_path(@group,@next_turn_attack,@turn_num_next) do
+      次のターンへ
 - else
-  = link_to attacks_new_path(@group,@next_turn_defence,@turn_num_next) do
-    次のターンへ
+  .next-turn
+    = link_to attacks_new_path(@group,@next_turn_defence,@turn_num_next) do
+      次のターンへ

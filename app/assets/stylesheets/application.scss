@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+ 
+
+ header {
+  position: relative;
+  background-color: navy;
+  color:white;
+  display: flex;
+  justify-content: space-between;
+  padding:0 20px;
+  height:60px;
+  line-height: 60px;
+
+  .logo {
+    width:150px;
+    text-align: center;
+  }
+  
+  .my-name {
+    width:100px;
+    text-align: center;
+  }
+
+  .logout {
+    width:150px;
+    text-align: center;
+  }
+  
+  a{
+    display: block;
+    color:white;
+    text-decoration: none;
+    
+  }
+  
+}
+
+
+@import "reset";
+@import "top";
+@import "groups";
+@import "turns";
+@import "attacks";

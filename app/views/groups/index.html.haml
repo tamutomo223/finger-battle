@@ -18,7 +18,8 @@
     - @groups.first(5).each do |group|
       %li.group
         =link_to group_path(group), class: "group" do
-          = group.name + "  ,"
+          .group-name
+            = group.name
           
 
   .button

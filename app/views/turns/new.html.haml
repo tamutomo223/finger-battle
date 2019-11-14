@@ -8,9 +8,22 @@
     window.location = location.href;
   }
 
+.group-title
+  = @group.name  
+
 = form_for [@turn]  do |f|
   %input{type: "hidden",name: "turn[turn_num]",value:1}
   %input{type: "hidden",name: "turn[group_id]",value:@group.id}
   %input{type: "hidden",name: "turn[user_ids][]",value: @owner.id, class: "hidden"}
   %input{type: "hidden",name: "turn[user_ids][]",value: @visiter.id, class: "hidden"}
-  = f.submit "試合開始" ,class: "group-edit-btn"
+  = f.submit "試合開始" ,class: "group-start-btn"
+
+
+.members
+  - @group.users.first(2).each do |user|
+    %input{name: "group[user_ids][]", type: "hidden", value: user.id}
+    %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
+    .member
+      -# .member-img
+      .member-name
+        = user.name  
