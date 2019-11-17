@@ -9,7 +9,7 @@
   }
 
 .group-title
-  = @group.name  
+  = "ルーム名:　〜#{@group.name}〜"
 
 = form_for [@turn]  do |f|
   %input{type: "hidden",name: "turn[turn_num]",value:1}

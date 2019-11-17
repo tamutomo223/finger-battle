@@ -11,10 +11,12 @@
     %header
       .logo
         = link_to root_path do
-          指スマオンライン
+          %img{src:"https://pbs.twimg.com/media/EJVPLBAUYAIx8KT?format=jpg&name=large", alt: "logo"}
       .my-name
         - if user_signed_in?
           = current_user.name    
       .logout
         = link_to "ログアウト", destroy_user_session_path, method: :delete
+    
+          
   = yield

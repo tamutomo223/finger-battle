@@ -30,8 +30,19 @@ class DefencesController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:group_id])
-    @turn = Turn.find(params[:id])
-    @defence = Defence.find(@turn.defence_id)
-  end  
+    # @turns = Turn.where(group_id: params[:group_id])
+     @group = Group.find(params[:group_id])
+     @turn = Turn.find(params[:id])
+    # @defence = Defence.find(@turn.defence_id)  
+    # @turns.each do |turn|
+    #   @attack_ids = turn.attack_id
+    #   @defence_ids = turn.defence_id  
+    # end
+    # if @turns.length >= 2 &&
+    #   redirect_to turns_result_path(@group,@turn)
+    # else
+    #   @notice = "相手待ちです"    
+    # end    
+    
+  end
 end

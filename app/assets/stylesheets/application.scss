@@ -19,7 +19,7 @@
 
  header {
   position: relative;
-  background-color: navy;
+  background-color:#012573;
   color:white;
   display: flex;
   justify-content: space-between;
@@ -28,6 +28,14 @@
   line-height: 60px;
 
   .logo {
+    
+    img {
+      padding-bottom: 10px;
+      padding-top:10px;
+      height:40px;
+      width:178px;
+    }
+    
     width:150px;
     text-align: center;
   }
@@ -49,6 +57,40 @@
     
   }
   
+}
+
+footer {
+  
+  position: relative;
+  bottom:0;
+  background-color:#012573;
+  color:white;
+  display: flex;
+  justify-content: space-between;
+  padding:0 20px;
+  height:60px;
+  line-height: 60px;
+
+  .footer-logo {
+    
+    img {
+      padding-bottom: 10px;
+      padding-top:10px;
+      height:40px;
+      width:178px;
+    }
+    
+    width:150px;
+    text-align: center;
+  }
+}
+
+.up {
+  display: block;
+  height:100px;
+  width:100px;
+  font-size:60px;
+  background-image: url("/ロゴ.png");
 }
 
 

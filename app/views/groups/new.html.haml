@@ -3,6 +3,7 @@
 
 .group-form
   = form_for [@group] do |f|
-    = f.text_field :name ,class:"group-id",placeholder:"ルーム名"
-    %input{name: "group[user_ids][]", type: "hidden", value: current_user.id, class: "hidden"}
-    = f.submit "ルームを作る",class:"group-btn"
+    .form-kijun
+      = f.text_field :name ,class:"group-id",placeholder:"ルーム名"
+      %input{name: "group[user_ids][]", type: "hidden", value: current_user.id, class: "hidden"}
+      = f.submit "ルームを作る",class:"group-btn"

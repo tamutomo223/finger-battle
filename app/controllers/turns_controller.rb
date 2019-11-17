@@ -20,7 +20,6 @@ class TurnsController < ApplicationController
     end
   end
 
-
   def result
     @group = Group.find(params[:group_id])
     @turns = Turn.where(params[:group_id])
@@ -61,7 +60,24 @@ class TurnsController < ApplicationController
     @next_turn_attack = @turn_attack_num.to_i + 2
     @next_turn_defence = @turn_defence_num.to_i + 2
     
+    if @turn_num_next.to_i >= 200 && @turn_num_next.to_i <= 299 && current_user == @group.users[0]
+      redirect_to turns_win_path(@group,1,@turn_num_next)
+    elsif @turn_num_next.to_i >= 200 && @turn_num_next.to_i <= 299 && current_user == @group.users[1]
+      redirect_to turns_lose_path(@group,1,@turn_num_next)
+    elsif @turn_num_next.to_i >= 1000 && current_user == @group.users[1] 
+      redirect_to turns_win_path(@group,1,@turn_num_next)
+    elsif @turn_num_next.to_i >= 1000 && current_user == @group.users[0] 
+      redirect_to turns_lose_path(@group,1,@turn_num_next)
+    end    
     
+  end
+  
+  def win
+    @group = Group.find(params[:group_id])
+  end
+  
+  def lose
+
   end  
 
   private

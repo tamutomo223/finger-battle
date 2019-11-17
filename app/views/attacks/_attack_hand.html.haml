@@ -1,9 +1,14 @@
 .attack-hand
   .notice
-    上がっている指の総数を当ててください
+    指の総数を当ててください
   .radio  
-    %input{type: "radio",name:"call",value: 0,checked: "checked"}0
-    %input{type: "radio",name:"call",value: 1}1
-    %input{type: "radio",name:"call",value: 2}2
-    %input{type: "radio",name:"call",value: 3}3
-    %input{type: "radio",name:"call",value: 4}4
+    %input{id: "attack-0",type: "radio",name:"call",value: 0,checked: "checked"}
+      %label{for:"attack-0",class:"attack-label"}0
+    %input{id: "attack-1",type: "radio",name:"call",value: 1}
+      %label{for:"attack-1",class:"attack-label"}1
+    %input{id: "attack-2",type: "radio",name:"call",value: 2}
+      %label{for:"attack-2",class:"attack-label"}2
+    %input{id: "attack-3",type: "radio",name:"call",value: 3}
+      %label{for:"attack-3",class:"attack-label"}3
+    %input{id: "attack-4",type: "radio",name:"call",value: 4}
+      %label{for:"attack-4",class:"attack-label"}4

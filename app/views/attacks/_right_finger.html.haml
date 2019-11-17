@@ -1,4 +1,7 @@
-.right-hand 
-  右指
-  %input{type: "radio",name:"right",value: 0,checked: "checked"}あげない
-  %input{type: "radio",name:"right",value: 1}あげる
+.right-hand
+  %input{id:"right-down",type: "radio",name:"right",value: 0,checked: "checked"}
+    %label{for:"right-down"}
+      %img{src:"/right-down.png", class:"up"}
+  %input{id:"right-up",type: "radio",name:"right",value: 1}
+    %label{for:"right-up"}
+      %img{src:"/right-up.png", class:"up"}

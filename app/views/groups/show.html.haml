@@ -2,14 +2,14 @@
 -#   window.onload = setupRefresh;
 
 -#   function setupRefresh() {
--#     setTimeout("refreshPage();", 5000);
+-#     setTimeout("refreshPage();", 3000);
 -#   }
 -#   function refreshPage() {
 -#     window.location = location.href;
 -#   }
 
 .group-title
-  = @group.name
+  = "ルーム名:　〜#{@group.name}〜"
 = form_for [@group] do |f|
   - if @group.users.length <= 1 && @group.users[0] != current_user
     = f.submit "ルームに入る",class:"group-edit-btn"

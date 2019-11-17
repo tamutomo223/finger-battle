@@ -7,10 +7,10 @@
   function refreshPage() {
     window.location = location.href;
   }
-  
-.next-turn
-  = link_to turns_result_path(@group,@turn) do
-    結果ページへ
 
-.notice
-  = @notice  
+.victory
+  あなたの勝ちです！！
+
+.next-turn
+  = link_to groups_destroy_path(@group) do
+    トップへ戻る 

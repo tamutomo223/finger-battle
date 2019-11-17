@@ -2,57 +2,114 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.group-start-btn {
-  height: 60px;
-  line-height: 60px;
-  display: block;
-  background-color: yellow;
-  margin:0 auto;
-  margin-top:60px;
-  width:100px;
-}
 
 .notice {
-  color:navy;
+  color:#012573;
   text-align: center;
   margin-top:70px;
-  font-size: 38px;
+  font-size: 20px;
 }
 
 .hands {
   display: flex;
-  justify-content: space-between;
-  margin:60px;
-  height:100px;
+  justify-content: center;
+  margin-top:30px;
+  height:150px;
   line-height: 80px;
+  
+
   .right-hand {
-    border: black solid 1px;
+    display: flex;
     padding:10px;
+    margin-left: 30px;
+    margin-right:30px;
+    input {
+      display: none;
+    }
+    label {
+      margin: 3px;
+      padding: 8px;
+      height: 100px;
+      width:100;
+      border-radius: 10px;
+      background:rgba(128, 128, 128, 0.1);
+      cursor: pointer;
+      cursor: hand;
+    }
+    input[type="radio"]:checked + label {
+      /* マウス選択時の背景色を指定する */
+      border:solid gray 2px;
+      }
   }
   .left-hand {
-    border: black solid 1px;
     padding:10px;
+    display: flex;
+    margin-left: 30px;
+    margin-right:30px;
+    input {
+      display: none;
+    }
+    label {
+      margin: 3px;
+      padding: 8px;
+      height: 100px;
+      width:100;
+      border-radius: 10px;
+      background:rgba(128, 128, 128, 0.1);
+      cursor: pointer;
+      cursor: hand;
+    }
+    input[type="radio"]:checked + label {
+      background:rgba(128, 128, 128, 0.1);/* マウス選択時の背景色を指定する */
+      border:solid gray 2px;
+      }
   }
 }
 
+
+
 .radio {
-  margin:60px;
+  margin:30px;
   height:100px;
-  line-height: 80px;
-  border: black solid 1px;
+  line-height: 50px;
   padding:10px;
   text-align: center;
-  font-size: 50px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  
+  input {
+    display: none;
+  }
+  .attack-label {
+    display: block;
+    margin: 3px;
+    padding: 8px;
+    height: 50px;
+    width:50px;     
+    background:rgba(128, 128, 128, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    cursor: hand;
+  }
+  input[type="radio"]:checked + label {
+    /* マウス選択時の背景色を指定する */
+    border:solid gray 2px;
+    }
 }
 
 .turn-btn {
   display: block;
   margin: 0 auto;
+  margin-top:50px;
   background-color: red;
-  color: beige;
+  border-radius:20px;
+  color: white;
   height:60px;
-  width:100px;
+  width:150px;
   font-size:20px;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .result {
@@ -112,4 +169,21 @@
   text-decoration: none;
   color: aliceblue;
   }
+}
+
+.victory {
+  color: red;
+  font-size:45px;
+  text-align: center;
+  margin-top:100px;
+  margin-bottom: 80px;
+}
+
+.lose {
+  color: blue;
+  font-size:45px;
+  margin:0 auto;
+  text-align: center;
+  margin-top:100px;
+  margin-bottom: 80px;
 }

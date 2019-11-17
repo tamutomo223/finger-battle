@@ -1,26 +1,31 @@
-:javascript
-  window.onload = setupRefresh;
+-# :javascript
+-#   window.onload = setupRefresh;
 
-  function setupRefresh() {
-    setTimeout("refreshPage();", 5000);
-  }
-  function refreshPage() {
-    window.location = location.href;
-  }
+-#   function setupRefresh() {
+-#     setTimeout("refreshPage();", 3000);
+-#   }
+-#   function refreshPage() {
+-#     window.location = location.href;
+-#   }
 
 .wrapper
-  %h1.title
-    指スマオンライン
+  .title
+    %img{:alt => "ロゴ", :src => "/ロゴ.png"}/
   
-  %h2.group-list
-    グループ一覧
-  %ul.groups    
-    - @groups.first(5).each do |group|
-      %li.group
-        =link_to group_path(group), class: "group" do
-          .group-name
-            = group.name
-          
-
   .button
     = link_to "グループを作る", "groups/new" 
+  
+  %h2 募集ルーム一覧
+  .group-list
+    %ul.groups    
+      - @groups.first(5).each do |group|
+        %li.group
+          =link_to group_path(group), class: "group" do
+            .group-name
+              .group-name-name
+                = "【#{group.name}】"
+              .group-host
+                = "オーナー名: #{group.users[0].name}"
+          
+
+  

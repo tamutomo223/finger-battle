@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   
   get "groups/:group_id/turns/:id/:turn_num", to: "turns#show", as: "turns_show"
   get "groups/:group_id/turns/:id/:turn_num/result", to: "turns#result", as: "turns_result"
-  
+  get "groups/:group_id/turns/:id/:turn_num/win", to: "turns#win", as: "turns_win"
+  get "groups/:group_id/turns/:id/:turn_num/lose", to: "turns#lose", as: "turns_lose"
+  get "groups/:group_id/destroy" ,to: "groups#destroy", as: "groups_destroy"
+
   get "groups/:group_id/turns/:id/:turn_num/attack",to:"attacks#new",as: "attacks_new"
   post "groups/:group_id/turns/:id/:turn_num/attack", to: "attacks#create" ,as: "attacks"
   get "groups/:group_id/turns/:id/:turn_num/attack/show", to:"attacks#show", as: "attacks_show"

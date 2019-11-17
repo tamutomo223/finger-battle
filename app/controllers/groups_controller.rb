@@ -38,10 +38,16 @@ class GroupsController < ApplicationController
     end  
   end  
 
+  def destroy
+    @group = Group.find(params[:group_id])
+    @group.destroy
+    redirect_to root_path
+  end
+
   private
 
   def group_params
-    params.require(:group).permit(:name, user_ids: [])
+    params.require(:group).permit(:name,user_ids: [])
   end
 
   def set_group

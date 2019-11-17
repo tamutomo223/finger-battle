@@ -2,14 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.wrapper {
+  background-image: url("/指.png");
+  background-size: cover;
+  background-position: center;
+  background-position: top;
+  height:calc(100vh+80px);
+}
 
 .group-title {
-  color:blue;
+  color :#012573;
+  font-weight: bold;
   margin:0 auto;
   margin-top:50px;
   margin-bottom:60px;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
+  
+}
+
+.form-kijun {
+  display: flex;
+  justify-content: center;
+}
+
+.group-form-comment {
+  display: block;
+  margin:0 auto;
+  margin-top:20px;
+  width:450px;
+  height:70px;
+  font-size:20px;
+  border:solid 3px #012573;
+  outline: none;
+  padding-left:10px;
 }
 
 .new_group ,.edit_group {
@@ -20,6 +46,10 @@
     height: 60px;
     width:450px;
     font-size:40px;
+    border-radius: 3px;
+    border:solid 3px #012573;
+    outline: none;
+    padding-left:10px;
   }
 
   .hidden {
@@ -28,11 +58,17 @@
   }
   .group-btn {
     display: block;
-    height: 60px;
     width:100px;
-    margin-top:2px;
-    margin-left: 10px;
-    background-color: yellow;
+    background-color:  #012573;
+    color:white;
+    font-size:12px;
+    font-weight: bold;
+    margin-left:4px ;
+    margin-top:3px;
+    &:hover {
+      box-shadow: 0 0 10px  #012573;
+      transition: 0.3s;
+    }
   }
 }
 
@@ -41,30 +77,69 @@
   margin:0 auto;
   width:100px;
   background-color: yellow;
+  border-radius: 30px;
   height: 60px;
-  
+  color:#012573;
+  text-align: center;
+  line-height: 60px;
+  text-decoration: none;
+  &:hover {
+     background-color: #012573;
+     color:yellow;
+     transition: 0.3s;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.group-start-btn {
+  display: block;
+  margin:0 auto;
+  width:200px;
+  background-color: rgb(211, 22, 22);
+  border-radius: 30px;
+  height: 60px;
+  color:white;
+  text-align: center;
+  line-height: 60px;
+  text-decoration: none;
+  cursor: pointer;
+  cursor: hand;
+  &:hover {
+     transition: 0.3s;
+     background-color: rgba(206, 14, 14, 0.952);
+     
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.wait-notice {
+  color :#012573;
+  display: block;
+  text-align: center;
+  margin-top: 70px;
 }
 
 .max-notice {
-  position:absolute;
-  top:150px;
-  left:35%;
   color:red;
-  font-size:40px;
+  display: block;
+  text-align: center;
+  margin-top: 70px;
 }
 
 .members {
   height:50vh;
   margin-top: 150px;
-  font-size: 40px;
+  font-size: 20px;
   display: flex;
   justify-content: space-between;
   .member {
     margin: 0 75px;
     line-height: 100px;
-    width:30%;
-    
-    
+    width:30%;    
     .member-img {
     height:30%;
     background-color: gray;
@@ -75,12 +150,17 @@
     }
     .member-name {
       text-align: center;
-      background-color: black;
-      color: white;
-      height: 10vh;
+      background-color:#012573;
+      border:2px #012573;
+      color:white;
+      height: 50px;
       width:100%;
-      line-height: 10vh;
-      font-size:5vh;
+      line-height: 50px;
+      font-size:25px;
+      border-radius: 10px;
+      &:first-of-type {
+        
+      }
     }
   }
 }

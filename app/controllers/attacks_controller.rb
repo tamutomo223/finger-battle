@@ -31,9 +31,20 @@ class AttacksController < ApplicationController
     end  
   end  
 
+
   def show
+    # @turns = Turn.where(group_id: params[:group_id])
     @group = Group.find(params[:group_id])
     @turn = Turn.find(params[:id])
-    @attack = Attack.find(@turn.attack_id)
-  end  
+    # @attack = Attack.find(@turn.attack_id) 
+    # @turns.each do |turn|
+    #   @attack_ids = turn.attack_id
+    #   @defence_ids = turn.defence_id
+    # end  
+    #   if @turns.length >= 2 &&
+    #     redirect_to turns_result_path(@group,@turn)
+    #   else  
+    #     @notice = "相手待ちです"  
+    #   end
+  end
 end

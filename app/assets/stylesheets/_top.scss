@@ -1,53 +1,106 @@
 .title {
-  color:red;
+  color:#012573;
   margin:0 auto;
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  margin-top:50px;
-  margin-bottom:60px;
   text-shadow: black 2px;
+  img {
+    height:150px;
+    margin-top:50px;
+  }
 }
 
+h2{
+  font-size:14px;
+  color:#012573;
+  background-color: white;
+  font-weight:bold;
+  height:30px;
+  line-height:30px;
+  width:200px;
+  text-align: center;
+  display: block;
+  margin:0 auto;
+  border-radius: 40px;
+  margin-top:200px;
+}
 .group-list {
   font-size:35px;
-  color: blue;
-  margin-left:30px;
-}
-.groups {
-  display: flex;
-  justify-content: space-between;
-  margin:0 30px;
-  list-style: none;
-  .group {
-    background-color: white;
-    font-size :30px;
-    margin-left: 15px;
-    text-decoration: none;
-    color: black;
-    .group-name{
-      border: 2px solid black;
-      height: 50px;
-      line-height: 50px;
-      text-align: center;
+  color:#012573;
+  font-weight:bold;
+  height:260px;
+  
+  .groups {
+    display: flex;
+    justify-content: left;
+    overflow:scroll;
+    overflow-y: hidden;
+    height:260px;
+    list-style: none;
+    white-space:nowrap;
+    &::-webkit-scrollbar {
+      display:none;
+    }   
+    .group {
+      margin-left: 15px;
+      text-decoration: none;
+      color:#012573;
+      width: 280px;
+      margin-right:40px;
+      .group-name{
+        border: 2px solid black;
+        background: rgba(255, 255, 255, 0.7);
+        height: 90px;
+        width: 280px;
+        line-height: 50px;
+        font-size:25px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 30px;
+        
+        &:hover {
+          
+          transition: 0.5s;
+          box-shadow: 0 0 20px #012573;
+        }
+        .group-host {
+          font-size: 20px;
+        }
+      }
+      
+    } 
     }
-  } 
-}  
+  }  
 
 .button {
   display:block;
   margin: 0 auto;
   text-align: center;
-  height: 70px;
-  line-height: 70px;
-  font-size:45px;
-  background-color: skyblue;
-  width:320px;
-  margin-top:100px;
+  height: 30px;
+  line-height: 23px;
+  font-size:15px;
+  background-color:#012573;
+  width:150px;
+  margin-bottom:20px;
   padding-top:10px;
   padding-left:10px;
+  padding-right:10px;
+  transition: 1s;
+  border-radius: 30px;
+  &:hover {
+    transition: 0.5s;
+    background-color: rgb(252, 248, 2);
+    a {
+      color:#012573;
+  }
+}
   a {
     text-decoration: none;
     color:white;
+    &:hover {
+      transition: 0.5s;
+      color:#012573;
+    }
   }
 }
