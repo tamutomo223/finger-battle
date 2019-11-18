@@ -1,5 +1,5 @@
 class Turn < ApplicationRecord
-  has_many :turn_users
+  has_many :turn_users,dependent: :destroy
   has_many :users, through: :turn_users
 
 

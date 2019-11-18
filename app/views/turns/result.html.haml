@@ -22,7 +22,7 @@
         .left-hand 
           %img{src:"/left-down.png", class:"up"}
       - if @defence.right
-        - if @attack.right.to_i == 1
+        - if @defence.right.to_i == 1
           .right-hand 
             %img{src:"/right-up.png", class:"up"}
         -else   
@@ -30,7 +30,7 @@
             %img{src:"/right-down.png", class:"up"}
       - else
         .right-hand
-          = ""          
+          = ""
 
   .call
     .call-text

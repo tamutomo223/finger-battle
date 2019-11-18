@@ -43,6 +43,13 @@ class TurnsController < ApplicationController
     @attack = Attack.find_by(id: @attacks)
     @defence = Defence.find_by(id: @defences)
 
+    @nil_turns = Turn.where(attack_id: nil).where(defence_id: nil)
+    if @nil_turns.length >= 1
+      @nil_turns.each do |turn|
+      turn.destroy
+      end  
+    end  
+
     @attackresult = @attack.right.to_i + @attack.left.to_i
     @defenceresult = @defence.right.to_i + @defence.left.to_i
     @total = @attackresult.to_i + @defenceresult.to_i
@@ -68,7 +75,9 @@ class TurnsController < ApplicationController
       redirect_to turns_win_path(@group,1,@turn_num_next)
     elsif @turn_num_next.to_i >= 1000 && current_user == @group.users[0] 
       redirect_to turns_lose_path(@group,1,@turn_num_next)
-    end    
+    end
+
+    
     
   end
   
