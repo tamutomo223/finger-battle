@@ -7,4 +7,5 @@ class Turn < ApplicationRecord
 
   belongs_to :attack,optional: true
   belongs_to :defence,optional: true
+
 end

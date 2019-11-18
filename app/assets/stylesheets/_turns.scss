@@ -113,48 +113,69 @@
 }
 
 .result {
-  display: flex;
-  justify-content: space-between;
-  margin:60px;
-  .attack {
-    border: black solid 1px;
-    width:150px;
-    height:100px;
-    padding:10px;
-    .result-title {
-      text-align: center;
-      padding-bottom: 10px;
-    }
-    p {
-      padding-top:10px;
-    }
-  }
-
-  .defence {
-    border: black solid 1px;
-    width:150px;
-    height:100px;
-    padding:10px;
-    .result-title {
-      text-align: center;
-      padding-bottom: 10px;
-    }
-    p {
-      padding-top:10px;
+  .aite-result {
+    margin-top:50px;
+    font-size:25px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    .left-hand,.right-hand{
+      display: block;
+        height:200px;
+        width:200px;
+      img{
+        height:200px;
+        width:200px;
+      }
     }
   }
 
-}
-.attack-call {
-  text-align: center;
-  font-size: 45px;
-}
+  .call {
+    font-size: 45px;
+    text-align: center;
+    line-height: 100px;
+    height: 100px;
+    margin-left:40vh;
+    margin-right:40vh;
+    margin-bottom:40px;
+    margin-top:20px;
+    z-index: 100;
+    width:120px;
+    
+    .call-text {
+      height: 96px;
+      z-index: 1;
+      background-color: #fff;
+      border: solid 2px black;
+      border-radius:20px;
+    }
 
-.atari {
-  margin:40px 40px;
-  text-align: center;
-  font-size: 45px;
-}
+    .atari {
+      font-size: 20px;
+      line-height:55px;
+    }
+  }
+  .nakama-result {
+    font-size:25px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    .left-hand,.right-hand{
+      display: block;
+      height:200px;
+      width:200px;
+      img{
+        height:200px;
+        width:200px;
+      }
+    }
+  }
+
+}  
+
+
+
+
 
 .next-turn {
   a {
@@ -162,12 +183,15 @@
   font-size: 20px;
   margin: 0 auto;
   background-color: red;
+  border-radius: 20px;
   text-align: center;
   width:200px;
   height:45px;
   line-height: 45px;
   text-decoration: none;
-  color: aliceblue;
+  color: white;
+  margin-top:90px;
+
   }
 }
 

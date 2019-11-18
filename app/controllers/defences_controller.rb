@@ -30,19 +30,21 @@ class DefencesController < ApplicationController
   end
 
   def show
-    # @turns = Turn.where(group_id: params[:group_id])
-     @group = Group.find(params[:group_id])
-     @turn = Turn.find(params[:id])
-    # @defence = Defence.find(@turn.defence_id)  
-    # @turns.each do |turn|
-    #   @attack_ids = turn.attack_id
-    #   @defence_ids = turn.defence_id  
-    # end
-    # if @turns.length >= 2 &&
-    #   redirect_to turns_result_path(@group,@turn)
-    # else
-    #   @notice = "相手待ちです"    
-    # end    
-    
+    @turns = Turn.where(group_id: params[:group_id]).where(turn_num: params[:turn_num])
+    @group = Group.find(params[:group_id])
+    @turn = Turn.find(params[:id])
+    @defence = Defence.find(@turn.defence_id) 
+    if @turns[0].attack_id != nil && @turns[1].defence_id != nil
+      redirect_to turns_result_path(@group,@turn)
+    elsif @turns[1].attack_id != nil && @turns[0].defence_id != nil
+      redirect_to turns_result_path(@group,@turn)
+    elsif @turns[1].attack_id != nil && @turns[3].defence_id != nil
+      redirect_to turns_result_path(@group,@turn)
+    elsif @turns[1].defence_id != nil && @turns[1].attack_id != nil
+      redirect_to turns_result_path(@group,@turn)  
+    else  
+      @notice = "相手待ちです"   
+    end    
+      
   end
 end

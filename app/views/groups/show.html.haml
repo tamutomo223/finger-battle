@@ -1,12 +1,12 @@
--# :javascript
--#   window.onload = setupRefresh;
+:javascript
+  window.onload = setupRefresh;
 
--#   function setupRefresh() {
--#     setTimeout("refreshPage();", 3000);
--#   }
--#   function refreshPage() {
--#     window.location = location.href;
--#   }
+  function setupRefresh() {
+    setTimeout("refreshPage();", 3000);
+  }
+  function refreshPage() {
+    window.location = location.href;
+  }
 
 .group-title
   = "ルーム名:　〜#{@group.name}〜"

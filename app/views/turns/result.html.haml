@@ -1,56 +1,77 @@
-.title
-  結果表示
-
-.result
-
-  .attack
-    .result-title
-      攻撃側
-
-    %p      
-      左手
-      = @attack.left
-
-      右手
-      = @attack.right
-
-    %p
-      合計
-      = @attackresult
-
-
-
-  .defence
-    .result-title
-      守備側
-
-    %p     
-      左手
-      = @defence.left
-
+.result 
+  .aite-result
+    相手
+    -if @attack.user_id.to_i != current_user.id    
+      - if @attack.left.to_i == 1
+        .left-hand 
+          %img{src:"/left-up.png", class:"up"}
+      -else
+        .left-hand 
+          %img{src:"/left-down.png", class:"up"}
+      - if @attack.right.to_i == 1
+        .right-hand 
+          %img{src:"/right-up.png", class:"up"}
+      -else
+        .right-hand   
+          %img{src:"/right-down.png", class:"up"}
+    -elsif @defence.user_id.to_i != current_user.id
+      - if @defence.left.to_i == 1
+        .left-hand 
+          %img{src:"/left-up.png", class:"up"}
+      -else
+        .left-hand 
+          %img{src:"/left-down.png", class:"up"}
       - if @defence.right
-        右手
-        = @defence.right
+        - if @attack.right.to_i == 1
+          .right-hand 
+            %img{src:"/right-up.png", class:"up"}
+        -else   
+          .right-hand
+            %img{src:"/right-down.png", class:"up"}
       - else
-        右手
-        = "なし"    
-          
+        .right-hand
+          = ""          
 
-    %p
-      合計
-      = @defenceresult
+  .call
+    .call-text
+      = "#{@attack.call}  !"
+    .atari  
+      = "〜#{@result}〜"  
+
+  .nakama-result
+    あなた
+    -if @attack.user_id.to_i == current_user.id    
+      - if @attack.left.to_i == 1
+        .left-hand 
+          %img{src:"/left-up.png", class:"up"}
+      -else
+        .left-hand 
+          %img{src:"/left-down.png", class:"up"}
+      - if @attack.right.to_i == 1
+        .right-hand 
+          %img{src:"/right-up.png", class:"up"}
+      -else
+        .right-hand   
+          %img{src:"/right-down.png", class:"up"}
+    -elsif @defence.user_id.to_i == current_user.id    
+      - if @defence.left.to_i == 1
+        .left-hand 
+          %img{src:"/left-up.png", class:"up"}
+      -else
+        .left-hand 
+          %img{src:"/left-down.png", class:"up"}
+      - if @defence.right
+        - if @defence.right.to_i == 1
+          .right-hand 
+            %img{src:"/right-up.png", class:"up"}
+        -else   
+          .right-hand
+            %img{src:"/right-down.png", class:"up"}
+      - else
+        .right-hand
+          = ""         
 
 
-
-%p.attack-call
-  コール
-  = @attack.call
-
-
-
-
-.atari  
-  = "〜#{@result}〜"
 
 
 - if current_user.id.to_i == @attack.user_id.to_i
