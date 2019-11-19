@@ -18,7 +18,7 @@
   %h2 募集ルーム一覧
   .group-list
     %ul.groups    
-      - @groups.first(5).each do |group|
+      - @groups.first(10).each do |group|
         %li.group
           =link_to group_path(group), class: "group" do
             .group-name
