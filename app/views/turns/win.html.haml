@@ -1,6 +1,17 @@
+:javascript
+  window.onload = setupRefresh;
+
+  function setupRefresh() {
+    setTimeout("refreshPage();", 3000);
+  }
+  function refreshPage() {
+    window.location = location.href;
+  }
+
 .victory
   あなたの勝ちです！！
 
 .next-turn
-  = link_to groups_destroy_path(@group) do
-    トップへ戻る 
+  - if current_user == @group.users[0]
+    = link_to groups_destroy_path(@group) do
+      トップへ戻る

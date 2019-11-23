@@ -1,3 +1,13 @@
+:javascript
+  window.onload = setupRefresh;
+
+  function setupRefresh() {
+    setTimeout("refreshPage();", 3000);
+  }
+  function refreshPage() {
+    window.location = location.href;
+  }
+
 .result 
   .aite-result
     相手
@@ -8,12 +18,16 @@
       -else
         .left-hand 
           %img{src:"/left-down.png", class:"up"}
-      - if @attack.right.to_i == 1
-        .right-hand 
-          %img{src:"/right-up.png", class:"up"}
-      -else
-        .right-hand   
-          %img{src:"/right-down.png", class:"up"}
+      - if @attack.right    
+        - if @attack.right.to_i == 1
+          .right-hand 
+            %img{src:"/right-up.png", class:"up"}
+        -else
+          .right-hand   
+            %img{src:"/right-down.png", class:"up"}
+      - else
+        .right-hand
+          = ""      
     -elsif @defence.user_id.to_i != current_user.id
       - if @defence.left.to_i == 1
         .left-hand 
@@ -47,12 +61,16 @@
       -else
         .left-hand 
           %img{src:"/left-down.png", class:"up"}
-      - if @attack.right.to_i == 1
-        .right-hand 
-          %img{src:"/right-up.png", class:"up"}
+      - if @attack.right 
+        - if @attack.right.to_i == 1
+          .right-hand 
+            %img{src:"/right-up.png", class:"up"}
+        -else
+          .right-hand
+            %img{src:"/right-down.png", class:"up"}
       -else
-        .right-hand   
-          %img{src:"/right-down.png", class:"up"}
+        .right-hand
+          = ""    
     -elsif @defence.user_id.to_i == current_user.id    
       - if @defence.left.to_i == 1
         .left-hand 
@@ -73,12 +91,11 @@
 
 
 
-
-- if current_user.id.to_i == @attack.user_id.to_i
+- if current_user.id.to_i == @attack.user_id.to_i && current_user.id == @owner.id
   .next-turn
-    = link_to defences_new_path(@group,@next_turn_attack,@turn_num_next) do
+    = link_to defences_new_path(@group,@next_turn,@turn_num_next) do
       次のターンへ
-- else
+- elsif current_user.id.to_i == @defence.user_id.to_i && current_user.id == @owner.id
   .next-turn
-    = link_to attacks_new_path(@group,@next_turn_defence,@turn_num_next) do
+    = link_to attacks_new_path(@group,@next_turn,@turn_num_next) do
       次のターンへ

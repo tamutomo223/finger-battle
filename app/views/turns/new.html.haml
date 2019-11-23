@@ -9,14 +9,16 @@
   }
 
 .group-title
-  = "ルーム名:　〜#{@group.name}〜"
+  = "ルーム名:  〜#{@group.name}〜"
 
-= form_for [@turn]  do |f|
+
+= form_for [@turn] do |f|
   %input{type: "hidden",name: "turn[turn_num]",value:1}
   %input{type: "hidden",name: "turn[group_id]",value:@group.id}
   %input{type: "hidden",name: "turn[user_ids][]",value: @owner.id, class: "hidden"}
   %input{type: "hidden",name: "turn[user_ids][]",value: @visiter.id, class: "hidden"}
-  = f.submit "試合開始" ,class: "group-start-btn"
+  -if current_user.id == @owner.id
+    = f.submit "試合開始" ,class: "group-start-btn"
 
 
 .members

@@ -9,7 +9,7 @@
   }
 
 .group-title
-  = "ルーム名:　〜#{@group.name}〜"
+  = "ルーム名:  〜#{@group.name}〜"
 = form_for [@group] do |f|
   - if @group.users.length <= 1 && @group.users[0] != current_user
     = f.submit "ルームに入る",class:"group-edit-btn"

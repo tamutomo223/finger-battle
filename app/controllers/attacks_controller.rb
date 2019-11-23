@@ -1,20 +1,28 @@
 class AttacksController < ApplicationController
 
   def new
-
+    
     @attack = Attack.new
     @group = Group.find(params[:group_id])
+    @owner = @group.users[0]
+    @visiter = @group.users[1]
     @turn_num = params[:turn_num]
+    @turn_made = Turn.find_by(group_id: @group.id,turn_num: @turn_num)
+    
+    
     if @turn_num.to_i == 1
       @turn = Turn.find(params[:id])  
     elsif @turn_num.to_i >= 200 && @turn_num.to_i <= 299
       redirect_to root_path
     elsif @turn_num.to_i >= 1000
       redirect_to root_path
-    else  
-      @turn = Turn.new(group_id: @group.id,turn_num: @turn_num)
-      @turn.save
+    elsif current_user.id == @owner.id && @turn_made == nil
+      @turn_new = Turn.new(group_id: @group.id,turn_num: @turn_num)
+      @turn_new.save
+      @turn = Turn.find(@turn_new.id)
     end
+
+    @turn = Turn.find(params[:id])
   end
   
   def create
@@ -23,7 +31,7 @@ class AttacksController < ApplicationController
       @turn = Turn.find(params[:id])
       @turn.update(attack_id: @attack.id)
       @group = Group.find(params[:group_id])
-      redirect_to attacks_show_path(@group,@turn.id,@turn.turn_num)
+      redirect_to attacks_show_path(@group,@turn,@turn.turn_num)
     else
       flash[:notice] = "sippai" 
       redirect_to root_path
@@ -33,20 +41,12 @@ class AttacksController < ApplicationController
 
 
   def show
-    @turns = Turn.where(group_id: params[:group_id]).where(turn_num: params[:turn_num])
     @group = Group.find(params[:group_id])
     @turn = Turn.find(params[:id])
-    @attack = Attack.find(@turn.attack_id)   
-    if @turns[0].attack_id != nil && @turns[1].defence_id != nil
-      redirect_to turns_result_path(@group,@turn)
-    elsif @turns[1].attack_id != nil && @turns[0].defence_id != nil
-      redirect_to turns_result_path(@group,@turn)
-    elsif @turns[1].attack_id != nil && @turns[3].defence_id != nil
-      redirect_to turns_result_path(@group,@turn)
-    elsif @turns[1].defence_id != nil && @turns[3].attack_id != nil
-      redirect_to turns_result_path(@group,@turn)
+    if @turn.attack_id != nil && @turn.defence_id != nil
+      redirect_to turns_result_path(@group,@turn,@turn.turn_num)
     else
-      @notice = "相手待ちです"   
+      @notice = "相手待ちです"
     end 
   end
 end

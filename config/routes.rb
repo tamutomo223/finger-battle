@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   get "groups/:group_id/turns/:id/:turn_num/defence" ,to:"defences#new",as: "defences_new"
   post "groups/:group_id/turns/:id/:turn_num/defence", to: "defences#create",as: "defences"
-  get "groups/:group_id/turns/:id/:turn_num//defence/show", to:"defences#show", as: "defences_show"
+  get "groups/:group_id/turns/:id/:turn_num/defence/show", to:"defences#show", as: "defences_show"
 end
