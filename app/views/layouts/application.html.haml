@@ -8,15 +8,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %header
-      .logo
-        = link_to root_path do
-          %img{src:"/ロゴ透過なし.png", alt: "logo"}
-      .my-name
-        - if user_signed_in?
-          = current_user.name    
-      .logout
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
+    
     
           
   = yield

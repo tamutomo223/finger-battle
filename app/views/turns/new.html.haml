@@ -20,6 +20,9 @@
   -if current_user.id == @owner.id
     = f.submit "試合開始" ,class: "group-start-btn"
 
+    .group_destroy
+      = link_to "グループ解体" , groups_destroy_path(@group)
+
 
 .members
   - @group.users.first(2).each do |user|
@@ -28,4 +31,5 @@
     .member
       -# .member-img
       .member-name
-        = user.name  
+        = user.name
+

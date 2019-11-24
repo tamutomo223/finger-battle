@@ -26,6 +26,9 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    if @group.users.length == 2 && user_signed_in?
+      redirect_to new_turn_path(@group)
+    end  
   end
 
   def update

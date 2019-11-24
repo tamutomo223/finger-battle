@@ -1,14 +1,18 @@
 class TurnsController < ApplicationController
   def new
     @turn = Turn.new
-    @group = Group.find(params[:group_id])
-    @owner = @group.users[0]
-    @visiter = @group.users[1]
-    @turns = Turn.where(group_id: params[:group_id])
-    @turn_get = @turns[0]
-    if current_user.id == @visiter.id && @turns.length >= 1
-      redirect_to defences_new_path(@group,@turn_get.id,@turn_get.turn_num)
-    end
+    @group = Group.find_by(id: params[:group_id])
+    if @group == nil
+      redirect_to root_path
+    else
+      @owner = @group.users[0]
+      @visiter = @group.users[1]
+      @turns = Turn.where(group_id: params[:group_id])
+      @turn_get = @turns[0]
+      if current_user.id == @visiter.id && @turns.length >= 1
+        redirect_to defences_new_path(@group,@turn_get.id,@turn_get.turn_num)
+      end
+    end  
   end
   
   def create
