@@ -4,7 +4,8 @@
       %img{src:"/ロゴ透過なし.png", alt: "logo"}
   .my-name
     - if user_signed_in?
-      = current_user.name    
+      = link_to user_path(current_user.id) do
+        = "#{current_user.name}(マイページ)"
   .logout
     = link_to "ログアウト", destroy_user_session_path, method: :delete
 .group-title

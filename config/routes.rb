@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root "groups#index"
   resources :groups, only: [:new,:create,:show, :update]
+  get "users/rank", to: "users#rank"
+  resources :users,only:[:show]
+  
   get 'groups/:group_id/turns/new', to: 'turns#new', as: "new_turn"
   post "groups/:group_id/turns", to: "turns#create", as: "turns"
   patch "groups/:group_id/turns", to: "turns#update", as: "turn"

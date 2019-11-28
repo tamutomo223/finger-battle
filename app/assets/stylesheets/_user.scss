@@ -140,3 +140,50 @@
     font-size: 13px;
   }
 }
+
+a{
+  text-decoration: none;
+}
+
+.user {
+  margin:0 auto;
+  text-align: center;
+  color:#012573;
+  font-size:30px;
+  margin:40px;
+  .user_rank {
+    
+  }
+  .user_win {
+    font-size:20px;
+  }
+}
+.sennreki {
+  text-align: center;
+  color:#012573;
+  font-size:20px;
+  .win_lose {
+    margin-bottom:30px ;
+  }
+  .ave {
+    margin-bottom:30px ;
+  }
+
+  .rank1 {
+    font-weight: bold;
+    color: yellow;
+    background-color:#012573;
+    width:300px;
+    margin:0 auto;
+    font-size:35px;
+    a {
+      color: yellow;
+    }
+  }
+  .rank {
+    color:#012573;
+    a{
+      color:#012573;
+    }
+  }
+}

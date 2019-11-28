@@ -1,0 +1,22 @@
+%header
+  .logo
+    = link_to root_path do
+      %img{src:"/ロゴ透過なし.png", alt: "logo"}
+  .my-name
+    - if user_signed_in?
+      = link_to user_path(current_user.id) do
+        = "#{current_user.name}(マイページ)"
+  .logout
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
+- @users.each do |user|
+  = link_to user_path(user.id) do
+    .user
+      .user_rank
+        = "#{@index}位"
+        = user.name
+      .user_win  
+        = "#{user.win}勝"
+        = "#{user.lose}敗"
+        = "勝率：#{user.win.to_f / (user.win.to_f + user.lose.to_f) * 100}%"
+    
+  - @index += 1

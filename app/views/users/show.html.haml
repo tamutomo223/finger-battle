@@ -1,0 +1,24 @@
+%header
+  .logo
+    = link_to root_path do
+      %img{src:"/ロゴ透過なし.png", alt: "logo"}
+  .my-name
+    - if user_signed_in?
+      = link_to user_path(current_user.id) do
+        = "#{current_user.name}(マイページ)"
+  .logout
+    = link_to "ログアウト", destroy_user_session_path, method: :delete
+.user
+  = @user.name
+.sennreki
+  .win_lose
+    = "#{@user.win}勝#{@user.lose}敗"
+    = "勝率：#{@avarage}%"
+  - if @indexx.to_i == 1
+    .rank1
+      = link_to "/users/rank" do
+        = "ランキング：#{@indexx}位"
+  - else
+    .rank
+      = link_to "/users/rank" do
+        = "ランキング：#{@indexx}位"

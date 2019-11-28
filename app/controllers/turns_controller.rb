@@ -73,24 +73,50 @@ class TurnsController < ApplicationController
 
     #urlに付与された番号がどちらかの勝利条件に当てはまっていれば、それぞれ勝ちページと負けページへ飛ばす
     if @turn_num_next.to_i >= 200 && @turn_num_next.to_i <= 299 && current_user == @owner
+      @user = User.find(current_user.id)
+      @current_win = @user.win
+      @update_win = @current_win.to_i + 1
+      @user.update(win:@update_win)
       redirect_to turns_win_path(@group,1,@turn_num_next)
     elsif @turn_num_next.to_i >= 200 && @turn_num_next.to_i <= 299 && current_user == @visiter
+      @user = User.find(current_user.id)
+      @current_lose = @user.lose
+      @update_lose = @current_lose.to_i + 1
+      @user.update(lose:@update_lose)
       redirect_to turns_lose_path(@group,1,@turn_num_next)
     elsif @turn_num_next.to_i >= 700 && @turn_num_next.to_i <= 799 && current_user == @owner
+      @user = User.find(current_user.id)
+      @current_win = @user.win
+      @update_win = @current_win.to_i + 1
+      @user.update(win:@update_win)
       redirect_to turns_win_path(@group,1,@turn_num_next)
     elsif @turn_num_next.to_i >= 700 && @turn_num_next.to_i <= 799 && current_user == @visiter
+      @user = User.find(current_user.id)
+      @current_lose = @user.lose
+      @update_lose = @current_lose.to_i + 1
+      @user.update(lose:@update_lose)
       redirect_to turns_lose_path(@group,1,@turn_num_next)    
     elsif @turn_num_next.to_i >= 1000 && current_user == @visiter
+      @user = User.find(current_user.id)
+      @current_win = @user.win
+      @update_win = @current_win.to_i + 1
+      @user.update(win:@update_win)
       redirect_to turns_win_path(@group,1,@turn_num_next)
     elsif @turn_num_next.to_i >= 1000 && current_user == @owner
+      @user = User.find(current_user.id)
+      @current_lose = @user.lose
+      @update_lose = @current_lose.to_i + 1
+      @user.update(lose:@update_lose)
       redirect_to turns_lose_path(@group,1,@turn_num_next)
     end
   end
   
   def win
+  
   end
   
   def lose
+    
   end
 
   def set_group 
