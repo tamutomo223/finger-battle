@@ -13,7 +13,7 @@
 .sennreki
   .win_lose
     = "#{@user.win}勝#{@user.lose}敗"
-    = "勝率：#{@avarage}%"
+    = "勝率：#{@avarage.floor(1).to_f}%"
   - if @indexx.to_i == 1
     .rank1
       = link_to "/users/rank" do

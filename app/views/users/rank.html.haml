@@ -17,6 +17,6 @@
       .user_win  
         = "#{user.win}勝"
         = "#{user.lose}敗"
-        = "勝率：#{user.win.to_f / (user.win.to_f + user.lose.to_f) * 100}%"
+        = "勝率：#{(user.win.to_f / (user.win.to_f + user.lose.to_f) * 100).floor(1).to_f}%"
     
   - @index += 1
