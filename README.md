@@ -42,7 +42,6 @@
 
 
 <img width="300" alt="スクリーンショット 2019-12-02 12 53 45" src="https://user-images.githubusercontent.com/57092560/71316924-5cf17100-24bc-11ea-8e17-5d4b5755e0cf.png">
-
 <img width="300" alt="スクリーンショット 2019-12-02 12 54 10" src="https://user-images.githubusercontent.com/57092560/71316925-5cf17100-24bc-11ea-9192-595c330bc29f.png">
 
 ### 対戦機能⑵
