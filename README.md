@@ -62,10 +62,10 @@
 
     見た目よりも、処理で差をつけたっかったので、コントローラーでの処理をこだわりました。
 
-### ・オーナー、ビジター機能
+### ・オーナー&ビジター
 
-    グループの作成者をオーナー、グループに入ってきたユーザーをビジターと定義し
-    オーナーのみが、試合開始や次ページへの移行をできるようにすることで、不具合を起こりづらくした。
+グループの作成者をオーナー、グループに入ってきたユーザーをビジターと定義し
+オーナーのみが、試合開始や次ページへの移行をできるようにすることで、不具合を起こりづらくした。
 
 ```controller.rb
 @owner = @group.users[0]
@@ -76,3 +76,69 @@
 -if current_user.id == @owner.id
   = f.submit "試合開始" ,class: "group-start-btn"
 ```
+
+### ・urlへのid付与
+urlにidを３種類付与することで、条件分岐を行い対戦状況を把握する。
+詳しくは、app/controller/turns_controller.rbのresultアクション内に記述してあります。
+
+```controller.rb
+
+コントローラー
+
+if @total == @attack.call.to_i && @attack.user == @owner
+  @result = "あたり"
+  @turn_num_next = @turn_num + 101
+elsif @total == @attack.call.to_i && @attack.user == @visiter
+  @result = "あたり"
+  @turn_num_next = @turn_num + 501
+else
+  @result = "はずれ"
+  @turn_num_next = @turn_num + 1
+end
+```
+
+```
+ビュー
+
+- if  @turn_num.to_i >= 1 && @turn_num.to_i <= 99
+  .hands
+    = render "left_finger"
+    = render "right_finger"
+  = render "attack_hand"
+  = render "form"
+
+- elsif @turn_num.to_i >= 101 && @turn_num.to_i <= 199 && @group.users[1] == current_user
+  .hands
+    = render "left_finger"
+    = render "right_finger"
+  = render "attack_hand"    
+  = render "form"
+
+- elsif @turn_num.to_i >= 101 && @turn_num.to_i <= 199 && @group.users[0] == current_user  
+  .hands
+    = render "left_finger"
+  = render "attack_hand"    
+  = render "form"
+
+- elsif @turn_num.to_i >= 501 && @turn_num.to_i <= 599 && @group.users[1] == current_user
+  .hands
+    = render "left_finger"
+  = render "attack_hand"    
+  = render "form"
+
+- elsif @turn_num.to_i >= 501 && @turn_num.to_i <= 599 && @group.users[0] == current_user
+  .hands
+    = render "left_finger"
+    = render "right_finger"
+  = render "attack_hand"    
+  = render "form"
+
+- elsif @turn_num.to_i >= 601 && @turn_num.to_i <= 700
+  .hands
+    = render "left_finger"
+  = render "attack_hand"    
+  = render "form"
+
+```
+
+
