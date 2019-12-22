@@ -71,3 +71,8 @@
 @owner = @group.users[0]
 @visiter = @group.users[1]
 ```
+
+```index.html.haml
+-if current_user.id == @owner.id
+  = f.submit "試合開始" ,class: "group-start-btn"
+```
