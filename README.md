@@ -97,7 +97,7 @@ else
 end
 ```
 
-```
+```index.html.haml
 ビュー
 
 - if  @turn_num.to_i >= 1 && @turn_num.to_i <= 99
