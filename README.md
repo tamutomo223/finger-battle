@@ -41,8 +41,7 @@
     試合が開始すると、一人は攻撃、もう一人は防御ページに移行する。攻撃側は数字当ての入力欄が表示される。双方の入力が終わるまで、結果ページには推移しない。
 
 
-<img width="300" alt="スクリーンショット 2019-12-02 12 53 45" src="https://user-images.githubusercontent.com/57092560/71316924-5cf17100-24bc-11ea-8e17-5d4b5755e0cf.png">
-<img width="300" alt="スクリーンショット 2019-12-02 12 54 10" src="https://user-images.githubusercontent.com/57092560/71316925-5cf17100-24bc-11ea-9192-595c330bc29f.png">
+<img width="300" alt="スクリーンショット 2019-12-02 12 53 45" src="https://user-images.githubusercontent.com/57092560/71316924-5cf17100-24bc-11ea-8e17-5d4b5755e0cf.png"><img width="300" alt="スクリーンショット 2019-12-02 12 54 10" src="https://user-images.githubusercontent.com/57092560/71316925-5cf17100-24bc-11ea-9192-595c330bc29f.png">
 
 ### 対戦機能⑵
 
